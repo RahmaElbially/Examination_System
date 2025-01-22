@@ -55,9 +55,6 @@
     -webkit-text-fill-color: transparent; 
     text-align: center;
 }
-.row form div{
-    margin-bottom: 0.5rem;
-}
 .row form div label{
     font-size: 1.2rem;
 }
@@ -72,10 +69,11 @@
 }
 .row form div p{
     color: var(--dark-rose);
+    margin-bottom: 0.5rem;
+    visibility: hidden;
 }
 .row form input[type='submit'] {
     width: 50%;
-    margin: 1rem 0;
     padding: 0.8rem;
     box-shadow: none;
     color: #fff;
