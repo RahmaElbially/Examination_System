@@ -1,5 +1,149 @@
+:root{
+    --dark-teal: #8bc5b9;
+    --light-teal: #cedcc5;
+    --dark-rose: #cb6e8e;
+    --light-rose: #f2b3aa;
+}
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+/* General */
+.container{
+    width: 80%;
+}
+
+/* Start Left Side */
+.row .left{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px 0 0 10px;
+    /* padding: 4rem; */
+    background: linear-gradient(
+        to bottom, 
+        var(--dark-teal), 
+        var(--light-teal),
+        var(--light-rose), 
+        var(--dark-rose)
+    );
+    box-shadow: 1px 1px 10px #aaa;
+}
+.row .left img{
+    width: 500px;
+    height: 500px;
+    border-radius: 10px;
+}
+
+/* End Left Side */
+
+/* Start Right Side --> Form */
+.row .right{
+    background-color: #fff;
+    border-radius: 0 10px 10px 0;
+    padding: 4rem 3rem 2rem;
+    box-shadow: 1px 1px 10px #aaa;
+}
+.row form h2{
+    font-family: "Dancing Script", serif;
+    /* font-family: "Yanone Kaffeesatz", serif; */
+    font-size: 40px;
+    background: linear-gradient(to right, #8bc5b9, #cb6e8e); 
+    background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+    text-align: center;
+}
+.row form div{
+    margin-bottom: 0.5rem;
+}
+.row form div label{
+    font-size: 1.2rem;
+}
+.row form div input{
+    margin: 0.5rem 0;
+    width: 80%;
+    border-radius: 5px;
+    padding: 0.5rem 0.8rem;
+    outline: none;
+    border: none;
+    box-shadow: 1px 1px 10px #aaa;
+}
+.row form div p{
+    color: var(--dark-rose);
+}
+.row form input[type='submit'] {
+    width: 50%;
+    margin: 1rem 0;
+    padding: 0.8rem;
+    box-shadow: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.2rem;
+    background: linear-gradient(
+        to left,
+        var(--dark-teal),
+        var(--light-teal),
+        var(--light-rose),
+        var(--dark-rose)
+    );
+    background-size: 150%; 
+    background-position: left;
+    text-transform: uppercase;
+    transition: background-position 0.5s ease; 
+}
+.row form input[type='submit']:hover {
+    background-position: right; 
+}
+.row form .account{
+    text-align: center;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+}
+.row form .account a{
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--dark-rose);
+}
+.row form .account a:hover{
+    text-decoration: underline;
+}
+/* End Left Side --> Form */
+
+/* Media Queries */
+@media screen and (min-width: 992px) and (max-width: 1300px) {
+    .row .left img{
+        width: 95%;
+        height: 400px;
+    }
+}
+@media screen and (max-width: 991px) {
+    .container{
+        width: 90%;
+    }
+    .row .left{
+        border-radius: 0;
+        padding: 1rem 0;
+        border-radius: 10px 10px 0 0;
+    }
+    .row .left img{
+        width: 70%;
+        height: 500px;
+    }
+    .row .right{
+        border-radius: 0 0 10px 10px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .row .left img{
+        width: 90%;
+        height: 400px;
+    }
+}
+@media screen and (max-width: 500px) {
+    .row .left img{
+        width: 90%;
+        height: 300px;
+    }
 }

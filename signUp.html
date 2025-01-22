@@ -4,11 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@200..700&display=swap" rel="stylesheet"> -->
+
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="CSS/signUp.css">
 </head>
-<body>
-    
+<body class="py-5">
+    <section class="container">
+        <div class="row">
+            <div class="left col-12 col-lg-6">
+               <img src="Images/Online test.gif" alt="online test image"> 
+            </div> <!-- End Col-6 -->
+
+            <form class="right col-12 col-lg-6">
+                <h2 class="mb-3">Get Started with Online Exam</h2>
+                <div class="first-name d-flex flex-column">
+                    <label>First Name</label>
+                    <input type="text">
+                    <p id="first-name-error">This Field Is Required</p>
+                </div>
+
+                <div class="last-name d-flex flex-column">
+                    <label>Last Name</label>
+                    <input type="text">
+                    <p id="last-name-error">This Field Is Required</p>
+                </div>
+
+                <div class="email d-flex flex-column">
+                    <label>Email</label>
+                    <input type="email">
+                    <p id="email-error">This Field Is Required</p>
+                </div>
+
+                <div class="password d-flex flex-column">
+                    <label>Password</label>
+                    <input type="password">
+                    <p id="password-error">This Field Is Required</p>
+                </div>
+
+                <div class="confirm-password d-flex flex-column">
+                    <label>Confirm Password</label>
+                    <input type="password">
+                    <p id="confirm-password-error">This Field Is Required</p>
+                </div>
+
+                <div class="submit-btn text-center">
+                    <input type="submit" value="Sign Up">
+                </div>
+
+                <p class="account">Already have acount? <a href="signIn.html">Login</a></p>
+            </form> <!-- End Col-6 -->
+        </div> <!-- End Row -->
+    </section>
     <script src="JS/signUp.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
