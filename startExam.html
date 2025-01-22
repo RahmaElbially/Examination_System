@@ -4,11 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Start Exam</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@200..700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="CSS/startExam.css">
 </head>
-<body>
-    
+<body class="py-5">
+    <section class="container d-flex justify-content-center align-items-center">
+        <div class="content">
+            <h2>Are you ready to start the exam ?</h2>
+            <p>There is some information before you start : </p>
+            <ol>
+                <li>You should answer all questions.</li>
+                <li>You should submit before the time ended.</li>
+                <li>If the time end we can't assessment unanswerd questions.</li>
+            </ol>     
+            <img src="Images/college entrance exam.gif" alt="Start Exam Image">
+            <button id="start-exam-btn">Start Exam</button>       
+        </div>
+    </section>
+
     <script src="JS/startExam.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>

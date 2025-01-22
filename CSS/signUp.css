@@ -50,7 +50,7 @@
     font-family: "Dancing Script", serif;
     /* font-family: "Yanone Kaffeesatz", serif; */
     font-size: 40px;
-    background: linear-gradient(to right, #8bc5b9, #cb6e8e); 
+    background: linear-gradient(to right, var(--dark-teal), var(--dark-rose)); 
     background-clip: text; 
     -webkit-text-fill-color: transparent; 
     text-align: center;
