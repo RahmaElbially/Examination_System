@@ -126,9 +126,9 @@ function passwordReq(){
         passwordError.style.visibility = "visible";
         passwordError.textContent = "This Field Is Required";
         passwordInput.style.boxShadow = "0px 0px 10px #f00";
-    }else if(passwordInput.value.length < 9){
+    }else if(passwordInput.value.length < 8){
         passwordError.style.visibility = "visible";
-        passwordError.textContent = "Password Must Be Greater Than 8";
+        passwordError.textContent = "Password Must Be Greater Than Or Equal 8";
         passwordInput.style.boxShadow = "0px 0px 10px #f00";
     }else{
         passwordError.style.visibility = "hidden";
