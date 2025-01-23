@@ -1,5 +1,178 @@
+:root{
+    --dark-teal: #8bc5b9;
+    --light-teal: #cedcc5;
+    --dark-rose: #cb6e8e;
+    --light-rose: #f2b3aa;
+}
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+/* General */
+body{
+    background: linear-gradient(
+        to bottom, 
+        var(--dark-teal), 
+        var(--light-teal),
+        var(--light-rose), 
+        var(--dark-rose)
+    );
+    min-height: 100vh;
+}
+
+/* Start Exam Content */
+section .exam-content,
+section .flag-content{
+    background-color: #eee;
+    box-shadow: 1px 1px 10px #aaa;
+    border-radius: 10px;
+    padding: 2rem;
+}
+section .exam-content .timer{
+    font-size: 22px;
+    color: var(--dark-rose);
+    font-weight: bold;
+}
+section .exam-content .timer i{
+    margin-right: 0.2rem;
+}
+section .exam-content h2{
+    margin: 1rem 0;
+    font-size: 30px;
+    color: #888;
+    font-family: "Yanone Kaffeesatz", serif;
+}
+section .exam-content .question .question-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(
+        to right, 
+        var(--dark-teal), 
+        var(--light-teal),
+        var(--light-rose), 
+        var(--dark-rose)
+    );
+    padding: 1rem;
+    font-size: 20px;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 5px;
+}
+section .exam-content .question .question-title i{
+    cursor: pointer;
+}
+section .exam-content .question .question-title i:hover{
+    color: #ff0;
+}
+section .exam-content .question .options{
+    list-style: none;
+    padding: 0;
+}
+section .exam-content .question .options li{
+    background-color: #ddd;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+section .exam-content .question .options li:hover{
+    background-color: var(--light-teal);
+    color: #fff;
+    font-weight: bold;
+}
+section .exam-content .questions-number i{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 1.8;
+    border: 1px solid var(--dark-teal);
+    color: var(--dark-teal);
+    cursor: pointer;
+}
+section .exam-content .questions-number i:hover{
+    background-color: var(--dark-teal);
+    color: #fff;
+}
+section .exam-content .questions-number .numbers{
+    margin: 0 0.5rem;
+    color: #888;
+    font-size: 18px;
+}
+section .exam-content .questions-number .numbers .first-num,
+section .exam-content .questions-number .numbers .last-num{
+    color: var(--dark-teal);
+    font-weight: bold;
+}
+section .exam-content .questions-number .right button{
+    padding: 0.5rem 1.5rem;
+    border-radius: 5px;
+    font-size: 20px;
+    outline: none;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    background-color: var(--dark-rose);
+}
+section .exam-content .questions-number .right button:hover {
+    background-color: var(--light-rose);
+}
+/* End Exam Content */
+
+
+/* Start Flag Content */
+section .flag-content h2{
+    background: linear-gradient(to right, var(--dark-teal), var(--dark-rose)); 
+    background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+    text-align: center;
+    font-family: "Yanone Kaffeesatz", serif; 
+    font-size: 40px;
+}
+section .flag-content .line{
+    width: 70%;
+    margin: auto;
+    height: 5px;
+    background: linear-gradient(
+        to right, 
+        var(--dark-teal), 
+        var(--light-teal),
+        var(--light-rose), 
+        var(--dark-rose)
+    );
+}
+section .flag-content .question{
+    background-color: #ddd;
+    padding: 0.8rem;
+    border-radius: 5px;
+}
+section .flag-content .question i{
+    color: var(--dark-rose);
+    font-size: 20px;
+    cursor: pointer;
+}
+/* End Flag Content */
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    .container{
+        width: 90%;
+    }
+}
+@media screen and (max-width: 600px) {
+    section .exam-content .question .question-title{
+        align-items: baseline;
+    }
+    section .exam-content .question .question-title i{
+        margin-left: 0.1rem;
+    }
+    section .exam-content .question .options li{
+        font-size: 16px;
+    }
+    section .exam-content .questions-number .right button{
+        padding: 0.5rem 5rem;
+    }
 }
