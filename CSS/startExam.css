@@ -79,8 +79,8 @@ body, .container {
 
 /* Media Queries */
 @media screen and (max-width: 768px) {
-    .content{
-        width: 100%;
+    .container{
+        width: 90%;
     }
     .content img{
         width: 400px;
