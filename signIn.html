@@ -8,14 +8,35 @@
     <link rel="stylesheet" href="CSS/signIn.css">
 </head>
 <body>
-    <form action="">
-        <input type="email" name="" id="loginEmail" placeholder="Example@gmail.com">
-        <div class="emailErr"></div>
-        <input type="password" name="" id="loginPass">
-        <div class="passErr"></div>
-        <button type="submit" id="login">Login</button>
-        <div class="subErr"></div>
-    </form>
+    <div class="container mt-5">
+        <div class="row">
+           <div class="left col-12 col-lg-6">
+               <img src="Images/Online test.gif" alt="">
+           </div>
+           <div class="right col-12 col-lg-6">
+            <h2 class="mb-3">Welcome Back</h2>
+               <form action="">
+                <div class="d-flex flex-column">
+                    <label for="">Email</label>
+                    <input type="email" name="" id="loginEmail">
+                    <div class="emailErr"></div>
+                </div>
+                <div class="d-flex flex-column">
+                    <label for="">Password</label>
+                    <input type="password" name="" id="loginPass">
+                    <div class="passErr"></div>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="submit-btn mt-5" id="login">Login</button>
+                    <!-- <div class="subErr"></div> -->
+                </div>
+                <p class="account mt-3">Do you have acount?<a href="signUp.html">Sign up</a></p>
+               </form> 
+           </div>
+        </div>
+    </div>
+   
+
     <script src="JS/signIn.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>

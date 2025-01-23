@@ -22,12 +22,14 @@ login.addEventListener("click" , function(e){
 
         if(loginEmail.value==""){
             emailErr.textContent="Required";
-            emailErr.style.color="red"
             checked=false;
+            loginEmail.style.boxShadow="0px 0px 10px #f00"
         }else if(!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(loginEmail.value)){
             emailErr.textContent="please enter valid email"
             checked=false;
-        }else{
+            loginEmail.style.boxShadow="0px 0px 10px #f00"
+        }
+        else{
             emailErr.textContent="";
         }
     
@@ -36,26 +38,26 @@ login.addEventListener("click" , function(e){
     if(loginPass.value==""){
         passErr.textContent="Required"
         checked=false;
-        passErr.style.color="red"
+        loginPass.style.boxShadow="0px 0px 10px #f00"
     }else {
         if(!(loginPass.value.length>=8) ){
         passErr.textContent="please enter 8 digit"
         checked=false;
-        passErr.style.color="red"
-     }else if(!regExpPass.test(loginPass.value) ){
-        passErr.textContent="numbers or special char and uppercase Letter"
-        checked=false;
-        passErr.style.color="red"
+        loginPass.style.boxShadow="0px 0px 10px #f00"
+     }
+     else{
+        passErr.textContent="";
     }
 }
-    if(checked==true){
-       subErr.textContent="valid login"
-       subErr.style.color="green"
-    //    passErr.textContent=""
-    //    passErr.textContent=""
+
+if(checked){
+    if(loginEmail.value!=localStorage.getItem("email")){
+        emailErr.textContent="Wrong Email"
+    }else if(loginPass.value!=localStorage.getItem("password")){
+        passErr.textContent="Wrong password"
+    }else{
+        location.replace("startExam.html")
+
     }
-    else{
-        subErr.textContent="not valid login"
-       subErr.style.color="red"
-    }
+}
 })
