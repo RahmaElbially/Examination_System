@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="CSS/signIn.css">
 </head>
 <body class="py-5">
@@ -25,9 +26,10 @@
                     <input type="email" name="" id="loginEmail">
                     <div class="emailErr"></div>
                 </div>
-                <div class="d-flex flex-column">
+                <div class="d-flex flex-column position-relative pas">
                     <label for="" class="my-2">Password</label>
-                    <input type="password" name="" id="loginPass">
+                    <input type="password" id="loginPass" class="form-control">
+                    <i class="fa-solid fa-eye position-absolute cursor-pointer" id="togglePassword"></i>
                     <div class="passErr"></div>
                 </div>
                 <div class="d-flex justify-content-center">
@@ -40,7 +42,18 @@
         </div>
     </div>
    
+    <script>
+        const togglePassword = document.getElementById("togglePassword");
+        const passwordInput = document.getElementById("loginPass");
 
+        togglePassword.addEventListener("click", () => {
+            const type = passwordInput.type === "password" ? "text" : "password";
+            passwordInput.type = type;
+
+            togglePassword.classList.toggle("fa-eye");
+            togglePassword.classList.toggle("fa-eye-slash");
+        });
+    </script>
     <script src="JS/signIn.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
