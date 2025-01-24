@@ -60,7 +60,11 @@
 }
 .row form div input{
     margin: 0.5rem 0;
+<<<<<<< HEAD
     width: 100%;
+=======
+    /* width: 80%; */
+>>>>>>> bfe16be28b83c7a4e240ff3fad78db421182c019
     border-radius: 5px;
     padding: 0.5rem 0.8rem;
     outline: none;

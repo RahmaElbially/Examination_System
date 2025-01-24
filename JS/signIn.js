@@ -66,3 +66,13 @@ login.addEventListener("click" , function(e){
 })
 
 
+const togglePassword = document.getElementById("togglePassword");
+const passwordInput = document.getElementById("loginPass");
+
+togglePassword.addEventListener("click", () => {
+    const type = passwordInput.type === "password" ? "text" : "password";
+    passwordInput.type = type;
+
+    togglePassword.classList.toggle("fa-eye");
+    togglePassword.classList.toggle("fa-eye-slash");
+});

@@ -97,7 +97,10 @@
 .row .right a:hover{
     text-decoration: underline;
 }
-
+.row .right .pas i{
+    margin-top: 55px;
+    margin-left: 400px;
+}
 @media screen and (min-width: 992px) and (max-width: 1300px) {
     .row .left img{
         width: 95%;
