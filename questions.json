@@ -1,0 +1,125 @@
+{
+    "examName": "html",
+    "questions": [
+        {
+            "id": 1,
+            "questionTitle": "What does HTML stand for ?",
+            "answers":[
+                {"id": 1, "option": "Hyperlinks and Text Markup Language"},
+                {"id": 2, "option": "Home Tool Markup Language"},
+                {"id": 3, "option": "Hyper Text Markup Language"},
+                {"id": 4, "option": "High-Level Text Machine Language"}
+            ],
+            "correctAnswerId": 3
+        },
+        
+        {
+            "id": 2,
+            "questionTitle": "Which HTML element is used to define the largest heading ?",
+            "answers":[
+                {"id": 1, "option": "<h6>"},
+                {"id": 2, "option": "<h1>"},
+                {"id": 3, "option": "<head>"},
+                {"id": 4, "option": "<title>"}
+            ],
+            "correctAnswerId": 2
+        },
+        
+        {
+            "id": 3,
+            "questionTitle": "How can you create a hyperlink in HTML ?",
+            "answers":[
+                {"id": 1, "option": "<link>"},
+                {"id": 2, "option": "<a href='url'>Link</a>"},
+                {"id": 3, "option": "<hyperlink>"},
+                {"id": 4, "option": "<a link='url'>Link</a>"}
+            ],
+            "correctAnswerId": 2
+        },
+
+        {
+            "id": 4,
+            "questionTitle": "Which attribute is used to specify an image source in an img tag ?",
+            "answers":[
+                {"id": 1, "option": "src"},
+                {"id": 2, "option": "href"},
+                {"id": 3, "option": "alt"},
+                {"id": 4, "option": "source"}
+            ],
+            "correctAnswerId": 1
+        },
+        
+        {
+            "id": 5,
+            "questionTitle": "What is the correct way to add a background color in HTML ?",
+            "answers":[
+                {"id": 1, "option": "<background>blue</background>"},
+                {"id": 2, "option": "<body color='blue'>"},
+                {"id": 3, "option": "<body style='background-color:blue;'>"},
+                {"id": 4, "option": "<bgcolor='blue'>"}
+            ],
+            "correctAnswerId": 3
+        },
+        
+        {
+            "id": 6,
+            "questionTitle": "Which HTML element is used to insert a line break ?",
+            "answers":[
+                {"id": 1, "option": "<break>"},
+                {"id": 2, "option": "<lb>"},
+                {"id": 3, "option": "<br>"},
+                {"id": 4, "option": "<line>"}
+            ],
+            "correctAnswerId": 3
+        },
+
+        {
+            "id": 7,
+            "questionTitle": "Which HTML tag is used to create an unordered list ?",
+            "answers":[
+                {"id": 1, "option": "<ul>"},
+                {"id": 2, "option": "<ol>"},
+                {"id": 3, "option": "<li>"},
+                {"id": 4, "option": "<list>"}
+            ],
+            "correctAnswerId": 1
+        },
+        
+        {
+            "id": 8,
+            "questionTitle": "What is the purpose of the title element in HTML ?",
+            "answers":[
+                {"id": 1, "option": "To define the main heading of the page"},
+                {"id": 2, "option": "To define the document's title shown in the browser tab"},
+                {"id": 3, "option": "To set the title for images"},
+                {"id": 4, "option": "To create tooltips"}
+            ],
+            "correctAnswerId": 2
+        },
+
+        {
+            "id": 9,
+            "questionTitle": "Which of the following tags is used to create a table row in HTML ?",
+            "answers":[
+                {"id": 1, "option": "<table>"},
+                {"id": 2, "option": "<tr>"},
+                {"id": 3, "option": "<td>"},
+                {"id": 4, "option": "<row>"}
+            ],
+            "correctAnswerId": 2
+        },
+        
+        {
+            "id": 10,
+            "questionTitle": "What is the correct way to make text bold in HTML ?",
+            "answers":[
+                {"id": 1, "option": "<b> or <strong>"},
+                {"id": 2, "option": "<bold>"},
+                {"id": 3, "option": "<text-bold>"},
+                {"id": 4, "option": "<em>"}
+            ],
+            "correctAnswerId": 1
+        }
+    ]
+}
+

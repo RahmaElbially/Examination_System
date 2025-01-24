@@ -1,3 +1,4 @@
+import User from '../JS/class.js';
 // Inputs
 let firstNameInput = document.querySelector(".first-name input");
 let lastNameInput = document.querySelector(".last-name input");
@@ -47,11 +48,16 @@ submitBtn.addEventListener("click", (e) =>{
         passwordError.style.visibility === "hidden" &&
         confirmPasswordError.style.visibility === "hidden"
     ){
+        const userId = Math.floor(Math.random() * 10000); 
+        const newUser = new User(
+            firstNameInput.value,
+            lastNameInput.value, 
+            emailInput.value, 
+            passwordInput.value, 
+            userId
+        );
+        newUser.saveUser();
         location.replace("signIn.html");
-        localStorage.setItem("firstName",firstNameInput.value);
-        localStorage.setItem("lastName",lastNameInput.value);
-        localStorage.setItem("email",emailInput.value);
-        localStorage.setItem("password",passwordInput.value);
     }
 })
 
