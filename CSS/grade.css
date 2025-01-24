@@ -1,5 +1,43 @@
+:root{
+    --dark-teal: #8bc5b9;
+    --light-teal: #cedcc5;
+    --dark-rose: #cb6e8e;
+    --light-rose: #f2b3aa;
+}
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+body{
+    background: linear-gradient(
+        to bottom, 
+        var(--dark-teal), 
+        var(--light-teal),
+        var(--light-rose), 
+        var(--dark-rose)
+    );
+    min-height: 100vh;
+}
+.container{
+    width: 50%;
+    
+}
+.container img{
+    width: 500px;
+    height:400px;
+}
+.progress-bar{
+    background-color: var(--dark-teal);
+}
+.container h2{
+    background: linear-gradient(to right, var(--light-teal), var(--dark-rose)); 
+    background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+}
+.container p{
+    background:var(--dark-rose); 
+    background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+    font: weight 200px;;
 }
