@@ -20,17 +20,26 @@ body{
     min-height: 100vh;
 }
 .container{
-    width: 50%;
+    width: 40%;
 }
 .container img{
     border-radius: 10px;
 }
-.content p{
+.content h2{
     text-align: center;
     background: linear-gradient(var(--dark-teal) , var(--dark-rose));
     background-clip: text;
     -webkit-text-fill-color:transparent ;
-    font-size: 2rem;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: "Yanone Kaffeesatz", serif; 
+}
+.content p{
+    text-align: center;
+    font-size: 25px;
+}
+.content .timeUp{
+    text-transform: capitalize;
 }
 @media screen and (max-width: 1400px) {
     .content img{

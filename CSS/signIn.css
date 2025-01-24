@@ -29,6 +29,7 @@
         var(--dark-rose)
     );
     box-shadow: 1px 1px 10px #aaa;
+    border-radius: 10px 0 0 10px;
 }
 .row .right{
     /* background-color: #fff; */
@@ -79,6 +80,7 @@
     background-position: left;
     transition: background-position 0.5s ease; 
     background-size: 150%; 
+    text-transform: uppercase;
 }
 .row .right button[type="submit"]:hover{
     background-position: right;
@@ -90,6 +92,7 @@
     color: var(--dark-rose);
     font-weight: bold;
     text-decoration: none;
+    margin-left: 0.3rem;
 }
 .row .right a:hover{
     text-decoration: underline;
