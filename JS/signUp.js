@@ -82,9 +82,15 @@ function namesReg(e){
 function emailReg(){
     let emailValue = emailInput.value; 
     let isEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(emailValue);
+    let users = JSON.parse(localStorage.getItem("users")) || []; 
+    let isUserExist = users.some(user => user.email === emailValue);
     if(!isEmail){
         emailError.style.visibility = "visible";
         emailError.textContent = "This Is Invalid Email";
+        emailInput.style.boxShadow = "0px 0px 10px #f00";
+    }else if(isUserExist){
+        emailError.style.visibility = "visible";
+        emailError.textContent = "This User Is Already Exist";
         emailInput.style.boxShadow = "0px 0px 10px #f00";
     }else{
         emailError.style.visibility = "hidden";
