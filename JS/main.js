@@ -4,7 +4,7 @@ let timeArr = time.split(":").map(Number);
 let [minutes , seconds] = timeArr;
 const intervalId = setInterval(function(){
     if(seconds === 0){
-        if(minutes === 1){
+        if(minutes === 0){
             clearInterval(intervalId);
             document.querySelector(".time").textContent="Time up";
             location.replace("timeOut.html");
@@ -60,9 +60,47 @@ function showQuestion(index) {
     questionsDiv.innerHTML = "";
     const question = data.questions[index];
     const p = document.createElement("p");
-    p.innerHTML = `${question.questionTitle} <i class="fa-solid fa-flag"></i>`;
+    p.innerHTML = `${question.questionTitle} <i class="fa-solid fa-flag flag"></i>`;
     p.classList.add("question-title");
     questionsDiv.appendChild(p);
+
+    ////flag////
+    let flag =document.querySelector(".flag")
+    let flagQues=document.querySelector(".flag-content")
+    flag.addEventListener("click" , function () {
+        let checked=true;
+        let self=this;
+        document.querySelectorAll(".flag_para").forEach(function(q){ 
+          if(self.parentElement.textContent==q.textContent){
+            checked=false;
+        }       
+    })
+    if(checked){
+        flagQues.innerHTML+=`<div class="question toggle flaged d-flex  justify-content-between align-items-center mt-4">
+      <p class="flaged flag_para">${this.parentNode.textContent}</p>  <i class="fa-solid fa-trash trash"></i> 
+    </div>`
+        this.style.color="yellow"
+        console.log(this.parentElement);
+        }
+    })
+    function updateColor(){
+        let flag_para =document.querySelectorAll(".flag_para") 
+        let isflagged=false
+        flag_para.forEach(function(q){ 
+            if(flag.parentElement.textContent==q.textContent){
+              isflagged=true;
+              console.log(flag_para);
+            }
+          } )
+          if(isflagged){
+            flag.style.color="yellow"
+          }else{
+            flag.style.color=""
+          }
+
+    }
+    updateColor()
+    ///////
 
     const ul = document.createElement("ul");
     ul.classList.add("options");
@@ -133,3 +171,22 @@ submitBtn.addEventListener("click",()=>{
         location.replace("fail.html");
     }
 })
+
+// flag
+let flagQues=document.querySelector(".flag-content")
+flagQues.addEventListener("click" , function(e){
+    if(e.target.classList.contains("trash")){
+        e.target.parentElement.remove();
+        // e.target.parentElement.classList.remove(".toggle")
+        updateColor();
+    }else if(e.target.classList.contains("flaged")){
+        let clickedText=e.target.textContent.trim()
+        let matched=data.questions.find(q=>q.questionTitle==clickedText)
+        if(matched){
+             currentQuestionIndex =data.questions.findIndex((q)=>q.questionTitle==clickedText)
+        }
+        firstNum.textContent=currentQuestionIndex +1
+        showQuestion(currentQuestionIndex)
+    }
+})
+
