@@ -15,7 +15,7 @@ const intervalId = setInterval(function(){
         seconds = 60;
     }
     seconds -= 1;
-    let formateTime=`${String(minutes).padStart(2,0)}:${String(seconds).padStart(2,0)}`;
+    let formateTime= `${String(minutes).padStart(2,0)}:${String(seconds).padStart(2,0)}`;
     document.querySelector(".time").textContent=formateTime;
 },1000);
 
@@ -33,6 +33,7 @@ let inCorrectdAnswers = 0;
 let selectedAnswers = {};
 const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
+
 // Random Questions 
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -41,6 +42,7 @@ function shuffleArray(array) {
     }
     return array;
 }
+
 
 // Fetsch Questions
 async function fetchData() {
@@ -72,6 +74,7 @@ async function fetchData() {
     }
 }
 
+
 function showQuestion(index) {
     questionsDiv.innerHTML = "";
     const question = data.questions[index];
@@ -80,6 +83,26 @@ function showQuestion(index) {
     p.classList.add("question-title");
     questionsDiv.appendChild(p);
 
+    const ul = document.createElement("ul");
+    ul.classList.add("options");
+
+    question.answers.forEach((answer) => {
+        const li = document.createElement("li");
+        li.textContent = answer.option;
+        ul.appendChild(li);
+
+        if (selectedAnswers[index] === answer.id) {
+            li.style.cssText = "background-color: #8bc5bac5; font-weight: bold; color: #fff";
+        }
+
+        li.addEventListener("click", () => {
+            const allLis = ul.querySelectorAll("li");
+            allLis.forEach(li => li.style.cssText = "");
+            li.style.cssText = "background-color: #8bc5bac5; font-weight: bold; color: #fff"
+            selectedAnswers[index] = answer.id;
+        });
+    });
+    questionsDiv.appendChild(ul);
     ////flag////
     let flag =document.querySelector(".flag")
     let flagQues=document.querySelector(".flag-content")
@@ -116,28 +139,6 @@ function showQuestion(index) {
 
     }
     updateColor()
-    ///////
-
-    const ul = document.createElement("ul");
-    ul.classList.add("options");
-
-    question.answers.forEach((answer) => {
-        const li = document.createElement("li");
-        li.textContent = answer.option;
-        ul.appendChild(li);
-
-        if (selectedAnswers[index] === answer.id) {
-            li.style.cssText = "background-color: #8bc5bac5; font-weight: bold; color: #fff";
-        }
-
-        li.addEventListener("click", () => {
-            const allLis = ul.querySelectorAll("li");
-            allLis.forEach(li => li.style.cssText = "");
-            li.style.cssText = "background-color: #8bc5bac5; font-weight: bold; color: #fff"
-            selectedAnswers[index] = answer.id;
-        });
-    });
-    questionsDiv.appendChild(ul);
 }
 
 fetchData();
@@ -189,46 +190,11 @@ prevBtn.addEventListener("click", () => {
     } 
 });
 
-
 // Submit Button
 submitBtn.addEventListener("click",()=>{
-// <<<<<<< HEAD
-    correctdAnswers = 0;
-    inCorrectdAnswers = 0;
-
-    data.questions.forEach((question, index) => {
-        if (selectedAnswers[index] === question.correctAnswerId) {
-            correctdAnswers++;
-        } else {
-            inCorrectdAnswers++;
-        }
-    });
-
-    currentUser.correctAnswers = correctdAnswers;
-    currentUser.wrongAnswers = inCorrectdAnswers;
-
-    let users = JSON.parse(localStorage.getItem('users')) || [];
-    users.forEach(user => {
-        if (user.email === currentUser.email) {
-            user.correctAnswers = correctdAnswers;
-            user.wrongAnswers = inCorrectdAnswers;
-        }
-    });
-    localStorage.setItem("users", JSON.stringify(users));
-
-    if (correctdAnswers >= inCorrectdAnswers) {
-        location.replace("pass.html");
-    } else {
-        location.replace("fail.html");
-    }
-})
-
-
-// =======
-saveUserProgress();
-// location.replace("grade.html");
-// });
-// >>>>>>> afc82182b465bb856557bbe88741c7ea1b3be0fb
+    saveUserProgress();
+    location.replace("grade.html");
+});
 
 // flag
 let flagQues=document.querySelector(".flag-content")
