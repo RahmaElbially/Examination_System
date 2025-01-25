@@ -117,9 +117,17 @@ function lastNameReq(){
 }
 
 function emailReq(){
+    let emailValue = emailInput.value; 
+    let users = JSON.parse(localStorage.getItem("users")) || []; 
+    let isUserExist = users.some(user => user.email === emailValue);
+
     if(emailInput.value === ""){
         emailError.style.visibility = "visible";
         emailError.textContent = "This Field Is Required";
+        emailInput.style.boxShadow = "0px 0px 10px #f00";
+    }else if(isUserExist){
+        emailError.style.visibility = "visible";
+        emailError.textContent = "This User Is Already Exist";
         emailInput.style.boxShadow = "0px 0px 10px #f00";
     }else{
         emailError.style.visibility = "hidden";

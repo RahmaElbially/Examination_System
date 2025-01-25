@@ -7,6 +7,7 @@ const intervalId = setInterval(function(){
         if(minutes === 0){
             clearInterval(intervalId);
             document.querySelector(".time").textContent="Time up";
+            saveUserProgress();
             location.replace("timeOut.html");
             return;
         }
@@ -43,16 +44,31 @@ function shuffleArray(array) {
 
 // Fetsch Questions
 async function fetchData() {
+    const body = document.querySelector("body");
+    const container = document.querySelector(".container");
+
+    // Loading
+    const loadingIndicator = document.createElement("div");
+    loadingIndicator.classList.add("loading");
+    body.insertBefore(loadingIndicator, container);
+
     try {
         const response = await fetch('questions.json');
         if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
+            container.style.display = "none";
+            loadingIndicator.remove();
+            var dataError = document.createElement("h2");
+            dataError.classList.add("data-error");
+            dataError.textContent = "There Is a Problem When getting Data !";
+            body.appendChild(dataError);
+            return;
         }
         data = await response.json(); 
+        loadingIndicator.remove();
         const shuffledQuestions = shuffleArray(data.questions);
         showQuestion(currentQuestionIndex, shuffledQuestions); 
     } catch (error) {
-        console.error('Error fetching data:', error);
+        dataError.textContent = `Error fetching data:', ${error}`;
     }
 }
 
@@ -110,10 +126,14 @@ function showQuestion(index) {
         li.textContent = answer.option;
         ul.appendChild(li);
 
+        if (selectedAnswers[index] === answer.id) {
+            li.style.cssText = "background-color: #8bc5bac5; font-weight: bold; color: #fff";
+        }
+
         li.addEventListener("click", () => {
             const allLis = ul.querySelectorAll("li");
             allLis.forEach(li => li.style.cssText = "");
-            li.style.cssText = "background-color: #cedcc5; font-weight: bold; color: #fff"
+            li.style.cssText = "background-color: #8bc5bac5; font-weight: bold; color: #fff"
             selectedAnswers[index] = answer.id;
         });
     });
@@ -121,6 +141,35 @@ function showQuestion(index) {
 }
 
 fetchData();
+
+// Save User Progress
+function saveUserProgress() {
+    correctdAnswers = 0;
+    inCorrectdAnswers = 0;
+
+    data.questions.forEach((question, index) => {
+        if (selectedAnswers[index] === question.correctAnswerId) {
+            correctdAnswers++;
+        } else {
+            inCorrectdAnswers++;
+        }
+    });
+
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const currentUserEmail = JSON.parse(localStorage.getItem("currentUser")).email;
+    const currentUserIndex = users.findIndex(user => user.email === currentUserEmail);
+
+    if (currentUserIndex !== -1) {
+        users[currentUserIndex].correctAnswers = correctdAnswers;
+        users[currentUserIndex].incorrectAnswers = inCorrectdAnswers;
+        localStorage.setItem('users', JSON.stringify(users)); 
+    }
+
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    currentUser.correctAnswers = correctdAnswers;
+    currentUser.incorrectAnswers = inCorrectdAnswers;
+    localStorage.setItem("currentUser", JSON.stringify(currentUser)); 
+}
 
 // Next Button
 nextBtn.addEventListener("click", () => {
@@ -140,8 +189,10 @@ prevBtn.addEventListener("click", () => {
     } 
 });
 
+
 // Submit Button
 submitBtn.addEventListener("click",()=>{
+// <<<<<<< HEAD
     correctdAnswers = 0;
     inCorrectdAnswers = 0;
 
@@ -172,6 +223,13 @@ submitBtn.addEventListener("click",()=>{
     }
 })
 
+
+// =======
+saveUserProgress();
+// location.replace("grade.html");
+// });
+// >>>>>>> afc82182b465bb856557bbe88741c7ea1b3be0fb
+
 // flag
 let flagQues=document.querySelector(".flag-content")
 flagQues.addEventListener("click" , function(e){
@@ -189,4 +247,3 @@ flagQues.addEventListener("click" , function(e){
         showQuestion(currentQuestionIndex)
     }
 })
-
