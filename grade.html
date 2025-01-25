@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@200..700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="CSS/grade.css">
+</head>
+<body class="d-flex justify-content-center align-items-center flex-column p-5">
+    <div class="container">
+        <div class="success shadow-lg">
+            <h2>Result</h2>
+            <img alt="success">
+            <div class="progress mt-5 mb-5" role="progressbar" aria-label="Info striped example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar progress-bar-striped " style="width: 50%">50%</div>
+            </div>
+            <p class="text-center fs-4 con"></p>
+            <p class="text-center fs-4 fail"></p>
+        </div>
+
+        <!-- <div class="failed shadow-lg p-3 mb-5 bg-body-tertiary rounded pb-lg-5" >
+            <h2 class="text-center">Result</h2>
+            <img src="Images/Worried.gif" class="mt-3" alt="success">
+            <div class="progress mt-5 mb-5" role="progressbar" aria-label="Info striped example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar progress-bar-striped " style="width: 50%">50%</div>
+                </div>
+                <p class="text-center fs-4 fail"></p>
+        </div> --> 
+    </div>
+    <script src="JS/grade.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -22,12 +22,17 @@ body{
 .container{
     width: 40%;
 }
+.container .content{
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 2rem 1.5rem;
+}
 .container img{
     border-radius: 10px;
 }
 .content h2{
     text-align: center;
-    background: linear-gradient(var(--dark-teal) , var(--dark-rose));
+    background: linear-gradient(to right, var(--dark-teal) , var(--dark-rose));
     background-clip: text;
     -webkit-text-fill-color:transparent ;
     font-size: 40px;
@@ -37,9 +42,36 @@ body{
 .content p{
     text-align: center;
     font-size: 25px;
+    color: #555;
 }
 .content .timeUp{
     text-transform: capitalize;
+}
+.content button{
+    display: block;
+    margin: 2rem auto 0;
+    width: 50%;
+    padding: 0.8rem;
+    border-radius: 5px;
+    font-size: 20px;
+    outline: none;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    background: linear-gradient(
+        to left,
+        var(--dark-teal),
+        var(--light-teal),
+        var(--light-rose),
+        var(--dark-rose)
+    );
+    background-size: 150%; 
+    background-position: left;
+    text-transform: uppercase;
+    transition: background-position 0.5s ease; 
+}
+.content button:hover {
+    background-position: right; 
 }
 @media screen and (max-width: 1400px) {
     .content img{

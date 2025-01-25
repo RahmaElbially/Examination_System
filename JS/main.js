@@ -4,9 +4,10 @@ let timeArr = time.split(":").map(Number);
 let [minutes , seconds] = timeArr;
 const intervalId = setInterval(function(){
     if(seconds === 0){
-        if(minutes === 1){
+        if(minutes === 0){
             clearInterval(intervalId);
             document.querySelector(".time").textContent="Time up";
+            saveUserProgress();
             location.replace("timeOut.html");
             return;
         }
@@ -84,6 +85,35 @@ function showQuestion(index) {
 
 fetchData();
 
+// Save User Progress
+function saveUserProgress() {
+    correctdAnswers = 0;
+    inCorrectdAnswers = 0;
+
+    data.questions.forEach((question, index) => {
+        if (selectedAnswers[index] === question.correctAnswerId) {
+            correctdAnswers++;
+        } else {
+            inCorrectdAnswers++;
+        }
+    });
+
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const currentUserEmail = JSON.parse(localStorage.getItem("currentUser")).email;
+    const currentUserIndex = users.findIndex(user => user.email === currentUserEmail);
+
+    if (currentUserIndex !== -1) {
+        users[currentUserIndex].correctAnswers = correctdAnswers;
+        users[currentUserIndex].incorrectAnswers = inCorrectdAnswers;
+        localStorage.setItem('users', JSON.stringify(users)); 
+    }
+
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    currentUser.correctAnswers = correctdAnswers;
+    currentUser.incorrectAnswers = inCorrectdAnswers;
+    localStorage.setItem("currentUser", JSON.stringify(currentUser)); 
+}
+
 // Next Button
 nextBtn.addEventListener("click", () => {
     if (currentQuestionIndex < data.questions.length - 1) {
@@ -102,34 +132,9 @@ prevBtn.addEventListener("click", () => {
     } 
 });
 
+
 // Submit Button
 submitBtn.addEventListener("click",()=>{
-    correctdAnswers = 0;
-    inCorrectdAnswers = 0;
-
-    data.questions.forEach((question, index) => {
-        if (selectedAnswers[index] === question.correctAnswerId) {
-            correctdAnswers++;
-        } else {
-            inCorrectdAnswers++;
-        }
-    });
-
-    currentUser.correctAnswers = correctdAnswers;
-    currentUser.wrongAnswers = inCorrectdAnswers;
-
-    let users = JSON.parse(localStorage.getItem('users')) || [];
-    users.forEach(user => {
-        if (user.email === currentUser.email) {
-            user.correctAnswers = correctdAnswers;
-            user.wrongAnswers = inCorrectdAnswers;
-        }
-    });
-    localStorage.setItem("users", JSON.stringify(users));
-
-    if (correctdAnswers >= inCorrectdAnswers) {
-        location.replace("pass.html");
-    } else {
-        location.replace("fail.html");
-    }
-})
+    saveUserProgress();
+    location.replace("grade.html");
+});
