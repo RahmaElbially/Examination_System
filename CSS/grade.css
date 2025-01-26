@@ -37,13 +37,120 @@ body{
 }
 .container img{
     border-radius: 10px;
+    width: 400px;
+    height: 400px;
 }
 .progress-bar{
     background-color: var(--dark-teal);
 }
-.container p{
+.container span{
     background:var(--dark-rose); 
     background-clip: text; 
     -webkit-text-fill-color: transparent; 
     font: weight 200px;;
+}
+.container p{
+    color:#c0c5cc;
+}
+/* //////////////new////////////// */
+.circle-container {
+    margin: 1.2rem 0;
+    position: relative;
+    width: 150px; /* حجم الدائرة */
+    height: 150px;
+    border-radius: 50%;
+    background: conic-gradient(
+        #8bc5b9 0%, 
+        #cb6e8e calc(var(--percentage) * 1%), 
+        #ddd 0
+    );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    --percentage: 0;
+    transition: background 1s ease;
+}
+
+.circle-container::before {
+    content: '';
+    position: absolute;
+    width: 80%; /* حجم الدائرة الداخلية */
+    height: 80%;
+    background: #fff; /* لون الخلفية الداخلية */
+    border-radius: 50%;
+}
+
+.percentage-text {
+    position: absolute;
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+}
+
+
+
+@media screen and (max-width: 1400px) {
+    .content img{
+        width: 430px;
+    }
+}
+@media screen and (max-width: 1300px) {
+    .container{
+        width: 50%;
+    }
+    .container img{
+        width: 430px;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .container img{
+        width: 400px;
+    }
+}
+@media screen and (max-width: 991px) {
+    .container{
+        width: 60%;
+    }
+    .container img{
+        width: 400px;
+    }
+}
+@media screen and (max-width: 800px) {
+    .container{
+        width: 70%;
+    }
+    .container img{
+        width: 400px;
+    }
+}
+@media screen and (max-width: 700px) {
+    .container img{
+        width: 340px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .container{
+        width: 80%;
+    }
+    .container img{
+        width: 300px;
+    }
+}
+@media screen and (max-width: 500px) {
+    .container{
+        width: 95%;
+    }
+    .container img{
+        width: 230px;
+        height: 230px;
+    }
+}
+@media screen and (max-width: 400px) {
+    .container img{
+        width:200px;
+        height: 200px;
+    }
+    .container p{
+        font-size: 20px;
+    }
 }
