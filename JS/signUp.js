@@ -5,6 +5,8 @@ let lastNameInput = document.querySelector(".last-name input");
 let emailInput = document.querySelector(".email input");
 let passwordInput = document.querySelector(".password input");
 let confirmPasswordInput = document.querySelector(".confirm-password input");
+let togglePassword = document.getElementById("togglePassword");
+let togglePassword2 = document.getElementById("togglePassword2");
 
 // Errors
 let firstNameError = document.getElementById("first-name-error");
@@ -164,3 +166,21 @@ function confirmPasswordReq(){
         confirmPasswordInput.style.boxShadow = "1px 1px 10px #aaa";
     }
 }
+
+// Show Passwords 
+
+togglePassword.addEventListener("click", () => {
+    const type = passwordInput.type === "password" ? "text" : "password";
+    passwordInput.type = type;
+
+    togglePassword.classList.toggle("fa-eye");
+    togglePassword.classList.toggle("fa-eye-slash");
+});
+
+togglePassword2.addEventListener("click", () => {
+    const type = confirmPasswordInput.type === "password" ? "text" : "password";
+    confirmPasswordInput.type = type;
+
+    togglePassword2.classList.toggle("fa-eye");
+    togglePassword2.classList.toggle("fa-eye-slash");
+});

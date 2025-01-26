@@ -12,33 +12,35 @@
     <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="CSS/signIn.css">
 </head>
-<body class="py-5">
-    <div class="container mt-5">
+
+<body class="py-5 d-flex justify-content-center align-items-center flex-column">
+    <div class="container">
         <div class="row">
-           <div class="left col-12 col-lg-6 p-5">
+           <div class="left col-12 col-lg-6">
                <img src="Images/Online test.gif" alt="">
            </div>
-           <div class="right col-12 col-lg-6">
-            <h2 class="mb-3">Welcome Back</h2>
-               <form action="">
+
+            <form class="right col-12 col-lg-6">
+                <h2 class="mb-3">Welcome Back</h2>
                 <div class="d-flex flex-column">
-                    <label for="" class="my-2">Email</label>
-                    <input type="email" name="" id="loginEmail">
-                    <div class="emailErr"></div>
+                    <label>Email</label>
+                    <input type="email" id="loginEmail">
+                    <p class="emailErr">This Field Is Required</p>
                 </div>
+
                 <div class="d-flex flex-column position-relative pas">
-                    <label for="" class="my-2">Password</label>
+                    <label>Password</label>
                     <input type="password" id="loginPass" class="form-control">
-                    <i class="fa-solid fa-eye-slash position-absolute end-0 top-50 me-3 cursor-pointer" id="togglePassword"></i>
-                    <div class="passErr"></div>
+                    <i class="fa-solid fa-eye-slash position-absolute me-3" id="togglePassword"></i>
+                    <p class="passErr">This Field Is Required</p>
                 </div>
+
                 <div class="d-flex justify-content-center">
-                    <button type="submit" class="submit-btn mt-5" id="login">Login</button>
-                    <!-- <div class="subErr"></div> -->
+                    <input type="submit" class="submit-btn" id="login" value="Login">
                 </div>
-                <p class="account mt-3">Do you have acount?<a href="signUp.html">Sign up</a></p>
-               </form> 
-           </div>
+
+                <p class="account">Don't have account ?<a href="signUp.html">Sign up</a></p>
+            </form> 
         </div>
     </div>
    

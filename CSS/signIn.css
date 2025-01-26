@@ -9,20 +9,21 @@
     padding: 0;
     box-sizing: border-box;
 }
+/* General */
+body{
+    min-height: 100vh !important;
+}
 .container{
     width: 80%;
-    /* max-width: ; */
 }
-.row .left img{
-    width: 95%;
-    height: 450px;
-    border-radius: 10px;
-    max-width: 100%;
-}
+
+/* Start Left Side */
 .row .left{
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    border-radius: 10px 0 0 10px;
+    padding: 2rem 0;
     background: linear-gradient(
         to bottom, 
         var(--dark-teal), 
@@ -31,87 +32,95 @@
         var(--dark-rose)
     );
     box-shadow: 1px 1px 10px #aaa;
-    border-radius: 10px 0 0 10px;
 }
+.row .left img{
+    width: 500px;
+    height: 500px;
+    border-radius: 10px;
+}
+/* End Left Side */
+
+/* Start Right Side */
 .row .right{
-    /* background-color: #fff; */
-    box-shadow: 1px 1px 10px #aaa;
+    background-color: #fff;
     border-radius: 0 10px 10px 0;
     padding: 4rem 3rem 2rem;
+    box-shadow: 1px 1px 10px #aaa;
 }
 .row .right h2{
     font-family: "Dancing Script", serif;
     /* font-family: "Yanone Kaffeesatz", serif; */
     font-size: 40px;
-    background: linear-gradient(to right, var(--dark-teal), var(--dark-rose),var(--light-rose)); 
+    background: linear-gradient(to right, var(--dark-teal), var(--dark-rose)); 
     background-clip: text; 
     -webkit-text-fill-color: transparent; 
     text-align: center;
 }
-.row .right label{
+.row form div label{
     font-size: 1.2rem;
 }
-.row .right input{
-    box-shadow: 1px 1px 10px  #aaa;
-    border: none;
-    outline: none;
-    padding: 0.5rem 0.8rem;
+.row form div input{
+    margin: 0.5rem 0;
+    width: 100%;
     border-radius: 5px;
-    /* width: 90%; */
+    padding: 0.5rem 0.8rem;
+    outline: none;
+    border: none;
+    box-shadow: 1px 1px 10px #aaa;
 }
-.row .right .emailErr , .passErr , .subErr{
+.row form div p{
     color: var(--dark-rose);
     margin-bottom: 0.5rem;
+    visibility: hidden;
 }
-.row .right button[type="submit"]{
-    background-color: #cb6e8e;
-    border-radius: 5px;
+.row form input[type='submit'] {
     width: 50%;
-    padding: 0.7rem;
+    padding: 0.8rem;
+    box-shadow: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.2rem;
     background: linear-gradient(
         to left,
-        var(--dark-teal), 
+        var(--dark-teal),
         var(--light-teal),
-        var(--light-rose), 
+        var(--light-rose),
         var(--dark-rose)
     );
-    font-weight: bold;
-    color: #fff;
-    border: none;
-    font-size: 1.3rem;
-    background-position: left;
-    transition: background-position 0.5s ease; 
     background-size: 150%; 
+    background-position: left;
     text-transform: uppercase;
+    transition: background-position 0.5s ease; 
+    margin-top: 2rem;
 }
-.row .right button[type="submit"]:hover{
-    background-position: right;
+.row form input[type='submit']:hover{
+    background-position: right; 
 }
-.row .right p{
+.row form .account{
     text-align: center;
+    font-size: 1.1rem;
+    margin-top: 1rem;
 }
-.row .right a{
-    color: var(--dark-rose);
-    font-weight: bold;
+.row form .account a{
     text-decoration: none;
     margin-left: 0.3rem;
+    font-weight: bold;
+    color: var(--dark-rose);
 }
-.row .right a:hover{
+.row form .account a:hover{
     text-decoration: underline;
 }
-/* .row .right .pas i{
-    margin-top: 55px;
-    margin-left: 400px;
-} */
-.pas i{
-    line-height: 2.4rem
+#togglePassword{
+    top: 42%;
+    right: 0;
+    cursor: pointer;
 }
 
+/* Media Queries */
 @media screen and (min-width: 992px) and (max-width: 1300px) {
     .row .left img{
         width: 95%;
-        max-width: 100%
-        /* height: 400px; */
+        height: 400px;
     }
 }
 @media screen and (max-width: 991px) {
@@ -125,8 +134,7 @@
     }
     .row .left img{
         width: 70%;
-        max-width: 100%;
-        height: auto;
+        height: 500px;
     }
     .row .right{
         border-radius: 0 0 10px 10px;
@@ -135,14 +143,15 @@
 @media screen and (max-width: 768px) {
     .row .left img{
         width: 90%;
-        /* max-width: 100%; */
-        height: auto;
+        height: 400px;
     }
 }
 @media screen and (max-width: 500px) {
     .row .left img{
         width: 90%;
-        /* max-width: 100%; */
-        height: auto;
+        height: 300px;
+    }
+    .row form h2{
+        font-size: 30px;
     }
 }

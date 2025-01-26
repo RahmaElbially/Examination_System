@@ -14,9 +14,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@200..700&display=swap" rel="stylesheet"> -->
 
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="CSS/signUp.css">
 </head>
-<body class="py-5">
+<body class="py-5 d-flex justify-content-center align-items-center flex-column">
     <section class="container">
         <div class="row">
             <div class="left col-12 col-lg-6">
@@ -43,15 +44,17 @@
                     <p id="email-error">This Field Is Required</p>
                 </div>
 
-                <div class="password d-flex flex-column">
+                <div class="password d-flex flex-column position-relative">
                     <label>Password</label>
                     <input type="password">
+                    <i class="fa-solid fa-eye-slash position-absolute me-3" id="togglePassword"></i>
                     <p id="password-error">This Field Is Required</p>
                 </div>
 
-                <div class="confirm-password d-flex flex-column">
+                <div class="confirm-password d-flex flex-column position-relative">
                     <label>Confirm Password</label>
                     <input type="password">
+                    <i class="fa-solid fa-eye-slash position-absolute me-3" id="togglePassword2"></i>
                     <p id="confirm-password-error">This Field Is Required</p>
                 </div>
 
@@ -59,7 +62,7 @@
                     <input type="submit" value="Sign Up">
                 </div>
 
-                <p class="account">Already have acount? <a href="signIn.html">Login</a></p>
+                <p class="account">Already have account? <a href="signIn.html">Login</a></p>
             </form> <!-- End Col-6 -->
         </div> <!-- End Row -->
     </section>
