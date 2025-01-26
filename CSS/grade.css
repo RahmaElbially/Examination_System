@@ -9,6 +9,7 @@
     padding: 0;
     box-sizing: border-box;
 }
+/* General */
 body{
     background: linear-gradient(
         to bottom, 
@@ -22,6 +23,7 @@ body{
 .container{
     width: 40%;
 }
+
 .container .success{
     background-color: #fff;
     border-radius: 10px;
@@ -52,11 +54,10 @@ body{
 .container p{
     color:#c0c5cc;
 }
-/* //////////////new////////////// */
 .circle-container {
     margin: 1.2rem 0;
     position: relative;
-    width: 150px; /* حجم الدائرة */
+    width: 150px; 
     height: 150px;
     border-radius: 50%;
     background: conic-gradient(
@@ -70,16 +71,14 @@ body{
     --percentage: 0;
     transition: background 1s ease;
 }
-
 .circle-container::before {
     content: '';
     position: absolute;
-    width: 80%; /* حجم الدائرة الداخلية */
+    width: 80%; 
     height: 80%;
-    background: #fff; /* لون الخلفية الداخلية */
+    background: #fff; 
     border-radius: 50%;
 }
-
 .percentage-text {
     position: absolute;
     font-size: 20px;
@@ -87,8 +86,7 @@ body{
     color: #000;
 }
 
-
-
+/* Media Queries */
 @media screen and (max-width: 1400px) {
     .content img{
         width: 430px;

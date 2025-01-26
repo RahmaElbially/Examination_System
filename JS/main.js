@@ -57,8 +57,8 @@ async function fetchData() {
     try {
         const response = await fetch('questions.json');
         if (!response.ok) {
-            container.style.display = "none";
             loadingIndicator.remove();
+            container.style.display = "none";
             var dataError = document.createElement("h2");
             dataError.classList.add("data-error");
             dataError.textContent = "There Is a Problem When getting Data !";
@@ -66,6 +66,18 @@ async function fetchData() {
             return;
         }
         data = await response.json(); 
+
+        // Empty
+        if (!data || !data.questions || data.questions.length === 0) {
+            loadingIndicator.remove();
+            container.style.display = "none";
+            const emptyDataError = document.createElement("h2");
+            emptyDataError.classList.add("data-error");
+            emptyDataError.textContent = "No Questions Found in the Data!";
+            body.appendChild(emptyDataError);
+            return;
+        }
+
         loadingIndicator.remove();
         const shuffledQuestions = shuffleArray(data.questions);
         showQuestion(currentQuestionIndex, shuffledQuestions); 

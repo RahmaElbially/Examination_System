@@ -49,7 +49,6 @@ body{
 /* Start Exam Content */
 section .exam-content,
 section .flag-content{
-    /* background-color: #eee; */
     background-color: #fff;
     box-shadow: 1px 1px 10px #aaa;
     border-radius: 10px;
