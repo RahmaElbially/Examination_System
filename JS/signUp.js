@@ -68,7 +68,7 @@ function namesReg(e){
     const inputField = e.target; 
     const errorField = inputField.nextElementSibling;
     let isChar = /^[A-Z a-z]$/.test(e.key);
-    let isControlKey = e.key === "Backspace" || e.key === "ArrowLeft" || e.key === "ArrowRight" || e.key === "Delete";
+    let isControlKey = e.key === "Backspace" || e.key === "ArrowLeft" || e.key === "ArrowRight" || e.key === "Delete" || e.key === "Tab" || e.key === "Shift";
     if (!isChar && !isControlKey) {
         e.preventDefault(); 
         errorField.style.visibility = "visible"; 

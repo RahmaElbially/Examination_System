@@ -53,6 +53,7 @@ async function fetchData() {
     const loadingIndicator = document.createElement("div");
     loadingIndicator.classList.add("loading");
     body.insertBefore(loadingIndicator, container);
+    container.style.display = "none";
 
     try {
         const response = await fetch('questions.json');
@@ -79,6 +80,7 @@ async function fetchData() {
         }
 
         loadingIndicator.remove();
+        container.style.display = "block";
         const shuffledQuestions = shuffleArray(data.questions);
         showQuestion(currentQuestionIndex, shuffledQuestions); 
     } catch (error) {
@@ -104,7 +106,7 @@ function showQuestion(index) {
         ul.appendChild(li);
 
         if (selectedAnswers[index] === answer.id) {
-            li.style.cssText = "background-color: #8bc5bac5; font-weight: bold; color: #fff";
+            li.style.cssText = "background-color: #8bc5bac5; font-weight: bold; color: #8bc5b9";
         }
 
         li.addEventListener("click", () => {
@@ -191,15 +193,34 @@ nextBtn.addEventListener("click", () => {
         firstNum.textContent = currentQuestionIndex + 1;
         showQuestion(currentQuestionIndex); 
     } 
+    if (currentQuestionIndex === data.questions.length - 1) {
+        nextBtn.classList.add("disabled");
+    } else {
+        nextBtn.classList.remove("disabled");
+    }
+    if (currentQuestionIndex > 0) {
+        prevBtn.classList.remove("disabled");
+    }
 });
 
 // Previous Button
+if (currentQuestionIndex === 0) {
+    prevBtn.classList.add("disabled");
+}
 prevBtn.addEventListener("click", () => {
     if (currentQuestionIndex > 0) {
         currentQuestionIndex--; 
         firstNum.textContent = currentQuestionIndex + 1;
         showQuestion(currentQuestionIndex); 
     } 
+    if (currentQuestionIndex === 0) {
+        prevBtn.classList.add("disabled");
+    } else {
+        prevBtn.classList.remove("disabled");
+    }
+    if (currentQuestionIndex < data.questions.length - 1) {
+        nextBtn.classList.remove("disabled");
+    }
 });
 
 // Submit Button

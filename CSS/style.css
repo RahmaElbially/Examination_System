@@ -96,7 +96,7 @@ section .exam-content .question .options{
     padding: 0;
 }
 section .exam-content .question .options li{
-    background-color: #ddd;
+    background-color: #eee;
     padding: 0.5rem 1rem;
     margin-bottom: 1rem;
     border-radius: 5px;
@@ -114,14 +114,29 @@ section .exam-content .questions-number i{
     border-radius: 50%;
     text-align: center;
     line-height: 1.8;
-    border: 1px solid var(--dark-teal);
-    color: var(--dark-teal);
     cursor: pointer;
 }
-section .exam-content .questions-number i:hover{
+
+#next, #prev{
+    background-color: #fff;
+    color: var(--dark-teal);
+    border: 1px solid var(--dark-teal);
+    cursor: pointer;
+}
+#next:hover, #prev:hover {
     background-color: var(--dark-teal);
     color: #fff;
 }
+#next.disabled, #prev.disabled {
+    background-color: #eee !important;
+    color: #ddd !important;
+    border-color: #ddd !important;
+    cursor: not-allowed;
+}
+#next.disabled:hover, #prev.disabled:hover {
+    background-color: #eee;
+}
+
 section .exam-content .questions-number .numbers{
     margin: 0 0.5rem;
     color: #888;
@@ -149,6 +164,9 @@ section .exam-content .questions-number .right button:hover {
 
 
 /* Start Flag Content */
+section .flag-content{
+    min-height: 77vh;
+}
 section .flag-content h2{
     background: linear-gradient(to right, var(--dark-teal), var(--dark-rose)); 
     background-clip: text; 
@@ -170,7 +188,7 @@ section .flag-content .line{
     );
 }
 section .flag-content .question{
-    background-color: #ddd;
+    background-color: #eee;
     padding: 0.8rem;
     border-radius: 5px;
     cursor: pointer;
