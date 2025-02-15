@@ -48,13 +48,16 @@ login.addEventListener("click" , function(e){
                 location.replace("startExam.html");
             } else {
                 passErr.style.visibility = "visible";
-                passErr.textContent = "This Password Is Wrong";
+                passErr.textContent = "This Password/Email Is Wrong";
                 loginPass.style.boxShadow = "0px 0px 10px #f00";
+                loginEmail.style.boxShadow = "0px 0px 10px #f00";
             } 
-        } else {
-            emailErr.style.visibility = "visible";
-            emailErr.textContent = "This Email Is Wrong";
+        } 
+        else {
+            passErr.style.visibility = "visible";
+            passErr.textContent = "This Password/Email Is Wrong";
             loginEmail.style.boxShadow = "0px 0px 10px #f00";
+            loginPass.style.boxShadow = "0px 0px 10px #f00";
         }
     }
 })
