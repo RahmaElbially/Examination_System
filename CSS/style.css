@@ -166,6 +166,8 @@ section .exam-content .questions-number .right button:hover {
 /* Start Flag Content */
 section .flag-content{
     min-height: 77vh;
+    max-height: 77vh;
+    overflow-y: scroll;
 }
 section .flag-content h2{
     background: linear-gradient(to right, var(--dark-teal), var(--dark-rose)); 
@@ -218,5 +220,9 @@ section .flag-content .question i{
     }
     section .exam-content .questions-number .right button{
         padding: 0.5rem 5rem;
+    }
+    section .flag-content{
+        min-height: 60vh;
+        max-height: 60vh;
     }
 }
